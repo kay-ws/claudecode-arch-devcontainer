@@ -1,3 +1,4 @@
+ [![Build](https://github.com/kay-ws/claudecode-arch-devcontainer/actions/workflows/build.yml/badge.svg)]
 # claudecode-arch-devcontainer
 
 Arch Linux ベースの [Claude Code](https://github.com/anthropics/claude-code) 用 DevContainer。
