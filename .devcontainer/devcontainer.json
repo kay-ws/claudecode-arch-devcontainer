@@ -1,0 +1,21 @@
+{
+  "name": "claudecode-arch-devcontainer",
+  "image": "ghcr.io/kay-ws/claudecode-arch-devcontainer:latest",
+  "remoteUser": "claude",
+  "containerUser": "claude",
+  "workspaceFolder": "/home/claude/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder}/workspace,target=/home/claude/workspace,type=bind,consistency=cached",
+  "mounts": [
+    "source=${localEnv:HOME}/synced/shared,target=/home/claude/synced/shared,type=bind"
+  ],
+  "runArgs": [
+    "--userns=keep-id",
+    "--security-opt=no-new-privileges",
+    "--cap-drop=ALL"
+  ],
+  "containerEnv": {
+    "TERM": "xterm-256color",
+    "TZ": "Asia/Tokyo"
+  },
+  "postCreateCommand": "mkdir -p ~/.claude && ln -sfn ~/synced/shared/claude-config/CLAUDE.md ~/.claude/CLAUDE.md && ln -sfn ~/synced/shared/claude-config/rules ~/.claude/rules && ln -sfn ~/synced/shared/claude-config/agents ~/.claude/agents && claude --version || true"
+}
